@@ -2,11 +2,20 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  let name = [
+    { namee: "Xaman  Dawud", address: "Sylhet" },
+    { namee: "kaman  Dawud", address: "Dhaka" },
+    { namee: "Saman  Dawud", address: "Uttora" },
+    { namee: "Palman  Dawud", address: "Luttora" },
+  ];
+  let lastName = [" Warner", " Dinner", " Smith", " dayint"];
+
   return (
     <div className="App">
-      <Shapes firstName="David Warner" lastName="Latin David"></Shapes>
-      <Shapes firstName="Hennry Bins" lastName="Wamiqa Gabbi"></Shapes>
-      <Shapes firstName="Waziha Chowdhury" lastName="Samia Ayat Iqbal"></Shapes>
+      {name.map((obj) => (
+        <Shapes name={obj.namee} lastName={obj.address}></Shapes>
+      ))}
+
       <Circle title="Web Development"></Circle>
       <Circle title="Mern-Stack Development"></Circle>
     </div>
@@ -17,7 +26,7 @@ function Shapes(props) {
   console.log(props);
   return (
     <div className="xdStyle">
-      <h1>{props.firstName}</h1>
+      <h1>{props.name}</h1>
       <h2>{props.lastName}</h2>
     </div>
   );
