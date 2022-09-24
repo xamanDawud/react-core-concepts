@@ -4,27 +4,29 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Shapes></Shapes>
-      <Shapes></Shapes>
-      <Circle></Circle>
-      <Circle></Circle>
+      <Shapes firstName="David Warner" lastName="Latin David"></Shapes>
+      <Shapes firstName="Hennry Bins" lastName="Wamiqa Gabbi"></Shapes>
+      <Shapes firstName="Waziha Chowdhury" lastName="Samia Ayat Iqbal"></Shapes>
+      <Circle title="Web Development"></Circle>
+      <Circle title="Mern-Stack Development"></Circle>
     </div>
   );
 }
 
-function Shapes() {
+function Shapes(props) {
+  console.log(props);
   return (
     <div className="xdStyle">
-      <h1>Xaman Dawud</h1>
-      <h2>Xaman Dawud Pro</h2>
+      <h1>{props.firstName}</h1>
+      <h2>{props.lastName}</h2>
     </div>
   );
 }
 
-function Circle() {
+function Circle(props) {
   return (
     <div className="circle_style">
-      <h1>Lorem Circle</h1>
+      <h1>{props.title}</h1>
       <p>
         Description:
         <span>
