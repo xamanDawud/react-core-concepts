@@ -1,3 +1,13 @@
+// ------React Main six things--------
+/*
+    1.JSX
+    2.Component
+    3.props
+    4.useState, useEffect
+    5.Event Handler
+    1.External Data Load
+*/
+
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -19,6 +29,7 @@ function App() {
       <Circle title="Web Development"></Circle>
       <Circle title="Mern-Stack Development"></Circle>
       <Counter></Counter>
+      <Users></Users>
     </div>
   );
 }
@@ -69,4 +80,35 @@ function Counter() {
   );
 }
 
+function Users(props) {
+  const [users, setUsers] = useState([]);
+  console.log(users);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+  return (
+    <div>
+      <h1>Set External</h1>
+      {users.map((user) => (
+        <User
+          name={user.name}
+          email={user.email}
+          address={user.address.city}
+        ></User>
+      ))}
+    </div>
+  );
+}
+
+function User(props) {
+  return (
+    <div className="usersApi">
+      <h1>Name: {props.name}</h1>
+      <p>Email: {props.email}</p>
+      <h2>City: {props.address}</h2>
+    </div>
+  );
+}
 export default App;
